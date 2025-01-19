@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Güzellik Merkezi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #fbc2eb);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    nav {
+      background-color: rgba(255, 255, 255, 0.8);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 30px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: #f774b4;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #f7428d;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color: #f7428d;
+      bottom: -5px;
+      left: 50%;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 100px 50px 50px;
+      border-radius: 20px;
+      margin: 100px auto;
+      width: 80%;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #444;
+      background: linear-gradient(90deg, #f6a5c0, #ffbb89, #f6a5c0);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-align: center;
+      animation: slideEffect 6s ease-in-out infinite;
+    }
+
+    @keyframes slideEffect {
+      0%, 100% {
+        background-position: -200% center;
+      }
+      50% {
+        background-position: 200% center;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      padding: 50px 0;
+    }
+
+    .section h2 {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .columns {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex-basis: 30%;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      margin: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .column:hover {
+      transform: scale(1.05);
+    }
+
+    .social-links {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #f774b4;
+      font-size: 1.5rem;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #f7428d;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Ana Sayfa</a>
+    <a href="#services">Hizmetlerimiz</a>
+    <a href="#gallery">Galeri</a>
+    <a href="#reviews">Yorumlar</a>
+  </nav>
+
+  <div id="home" class="container section">
+    <h1>ANJEL BEGÜM GÜZELLİK VE ESTETİK</h1>
+    <p>Güzellik merkezimize hoş geldiniz. Kendinizi şımartmanın tam zamanı!</p>
+  </div>
+
+  <div id="services" class="container section">
+    <h2>Hizmetlerimiz</h2>
+    <div class="columns">
+      <div class="column">
+        <h3>Cilt Bakımı</h3>
+        <p>Profesyonel cilt bakım hizmetlerimizle cildinize hak ettiği özeni gösterin.</p>
+      </div>
+      <div class="column">
+        <h3>Saç Kesimi</h3>
+        <p>İstediğiniz saç stilini uzman kuaförlerimizle hayata geçirin.</p>
+      </div>
+      <div class="column">
+        <h3>Masaj</h3>
+        <p>Rahatlayın ve stresinizi uzman masaj terapistlerimizle atın.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="gallery" class="container section">
+    <h2>Galeri</h2>
+    <p>Merkezimizin en güzel anlarına göz atın.</p>
+    <!-- Galeri için daha sonra resimlerle süsleyebiliriz -->
+  </div>
+
+  <div id="reviews" class="container section">
+    <h2>Yorumlar</h2>
+    <p>Müşterilerimizin hakkımızdaki düşünceleri.</p>
+    <!-- Yorumlar eklenebilir -->
+  </div>
+
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f">Facebook</i></a>
+    <a href="#"><i class="fab fa-instagram">Instagram</i></a>
+  </div>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

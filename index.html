@@ -37,7 +37,8 @@
       padding: 15px 0;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
       z-index: 1000;
     }
 
@@ -71,6 +72,21 @@
       left: 0;
     }
 
+    .menu-icon {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #f774b4;
+    }
+
+    .menu-items {
+      display: flex;
+    }
+
+    .menu-items a {
+      margin: 0 15px;
+    }
+
     .container {
       text-align: center;
       background: rgba(255, 255, 255, 0.8);
@@ -84,20 +100,6 @@
     h1 {
       font-size: 3rem;
       color: #444;
-      background: linear-gradient(90deg, #f6a5c0, #ffbb89, #f6a5c0);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-align: center;
-      animation: slideEffect 6s ease-in-out infinite;
-    }
-
-    @keyframes slideEffect {
-      0%, 100% {
-        background-position: -200% center;
-      }
-      50% {
-        background-position: 200% center;
-      }
     }
 
     p {
@@ -156,19 +158,43 @@
     .social-links a:hover {
       color: #f7428d;
     }
+
+    @media screen and (max-width: 768px) {
+      .menu-items {
+        display: none;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+      }
+
+      .menu-items a {
+        margin: 10px 0;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .menu-items.active {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#home">Ana Sayfa</a>
-    <a href="#services">Hizmetlerimiz</a>
-    <a href="#gallery">Galeri</a>
-    <a href="#reviews">Yorumlar</a>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu-items">
+      <a href="#home">Ana Sayfa</a>
+      <a href="#services">Hizmetlerimiz</a>
+      <a href="#gallery">Galeri</a>
+      <a href="#reviews">Yorumlar</a>
+    </div>
   </nav>
 
   <div id="home" class="container section">
-    <h1>ANJEL BEGÜM GÜZELLİK VE ESTETİK</h1>
+    <h1>Güzelliğinizi Keşfedin</h1>
     <p>Güzellik merkezimize hoş geldiniz. Kendinizi şımartmanın tam zamanı!</p>
   </div>
 
@@ -206,6 +232,12 @@
     <a href="#"><i class="fab fa-facebook-f">Facebook</i></a>
     <a href="#"><i class="fab fa-instagram">Instagram</i></a>
   </div>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-items').classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>

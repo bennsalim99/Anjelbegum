@@ -1,243 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Güzellik Merkezi</title>
+  <title>Anjel Begüm Güzellik Merkezi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
-
-    body, html {
+    /* Genel Ayarlar */
+    body {
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      height: 100%;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #fbc2eb);
-      background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
+      box-sizing: border-box;
     }
 
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    nav {
-      background-color: rgba(255, 255, 255, 0.8);
-      position: fixed;
-      top: 0;
-      width: 100%;
+    /* Header */
+    header {
+      background-color: #ffe4e1;
       padding: 15px 0;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: sticky;
+      top: 0;
       z-index: 1000;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    nav a {
-      margin: 0 30px;
-      font-size: 1.2rem;
-      text-decoration: none;
-      color: #f774b4;
-      font-weight: bold;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    nav a:hover {
-      color: #f7428d;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background-color: #f7428d;
-      bottom: -5px;
-      left: 50%;
-      transition: width 0.3s ease, left 0.3s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-      left: 0;
-    }
-
-    .menu-icon {
-      display: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #f774b4;
-    }
-
-    .menu-items {
+    header .menu {
       display: flex;
-    }
-
-    .menu-items a {
-      margin: 0 15px;
-    }
-
-    .container {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 100px 50px 50px;
-      border-radius: 20px;
-      margin: 100px auto;
-      width: 80%;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #444;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .section {
-      padding: 50px 0;
-    }
-
-    .section h2 {
-      color: #444;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      color: #666;
-      font-size: 1.1rem;
-    }
-
-    .columns {
-      display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 15px;
       flex-wrap: wrap;
     }
+    header .menu a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 600;
+      font-size: 16px;
+    }
 
-    .column {
-      flex-basis: 30%;
-      background: rgba(255, 255, 255, 0.9);
+    /* Hero Bölümü */
+    .hero {
+      background: url('https://i.ibb.co/SQjnVgX/Ekran-g-r-nt-s-2025-01-19-212921.png') no-repeat center center/cover;
+      height: 60vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      text-align: center;
       padding: 20px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    /* Hizmetler */
+    .services, .gallery, .reels {
+      text-align: center;
+      padding: 30px 10px;
+    }
+    .services .card {
+      display: inline-block;
+      width: 90%;
+      max-width: 300px;
       margin: 10px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .column:hover {
-      transform: scale(1.05);
-    }
-
-    .social-links {
-      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-
-    .social-links a {
-      text-decoration: none;
-      color: #f774b4;
-      font-size: 1.5rem;
-      margin: 0 15px;
-      transition: color 0.3s ease;
+    .services .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
     }
 
-    .social-links a:hover {
-      color: #f7428d;
+    /* Galeri */
+    .gallery img {
+      width: 90%;
+      max-width: 300px;
+      margin: 10px auto;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
     }
 
-    @media screen and (max-width: 768px) {
-      .menu-items {
-        display: none;
-        width: 100%;
-        text-align: center;
-        flex-direction: column;
-      }
+    /* Reels */
+    .reels video {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      display: block;
+    }
 
-      .menu-items a {
-        margin: 10px 0;
-      }
-
-      .menu-icon {
-        display: block;
-      }
-
-      .menu-items.active {
-        display: flex;
-      }
+    /* Footer */
+    footer {
+      background-color: #ffe4e1;
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-
-  <nav>
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-    <div class="menu-items">
-      <a href="#home">Ana Sayfa</a>
-      <a href="#services">Hizmetlerimiz</a>
-      <a href="#gallery">Galeri</a>
-      <a href="#reviews">Yorumlar</a>
+  <!-- Header -->
+  <header>
+    <div class="menu">
+      <a href="#anasayfa">Ana Sayfa</a>
+      <a href="#hizmetler">Hizmetlerimiz</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#reels">Reels</a>
     </div>
-  </nav>
+  </header>
 
-  <div id="home" class="container section">
-    <h1>Güzelliğinizi Keşfedin</h1>
-    <p>Güzellik merkezimize hoş geldiniz. Kendinizi şımartmanın tam zamanı!</p>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero" id="anasayfa">
+    <h1>Anjel Begüm Güzellik Merkezi</h1>
+    <p>Güzelliğin en özel adresi!</p>
+  </section>
 
-  <div id="services" class="container section">
+  <!-- Services Section -->
+  <section class="services" id="hizmetler">
     <h2>Hizmetlerimiz</h2>
-    <div class="columns">
-      <div class="column">
-        <h3>Cilt Bakımı</h3>
-        <p>Profesyonel cilt bakım hizmetlerimizle cildinize hak ettiği özeni gösterin.</p>
-      </div>
-      <div class="column">
-        <h3>Saç Kesimi</h3>
-        <p>İstediğiniz saç stilini uzman kuaförlerimizle hayata geçirin.</p>
-      </div>
-      <div class="column">
-        <h3>Masaj</h3>
-        <p>Rahatlayın ve stresinizi uzman masaj terapistlerimizle atın.</p>
-      </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Cilt Bakımı">
+      <h3>Cilt Bakımı</h3>
+      <p>Profesyonel cilt bakım hizmetleri.</p>
     </div>
-  </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Lazer Epilasyon">
+      <h3>Lazer Epilasyon</h3>
+      <p>Kalıcı ve etkili lazer epilasyon.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/100" alt="Kalıcı Makyaj">
+      <h3>Kalıcı Makyaj</h3>
+      <p>Doğal ve etkileyici görünümler.</p>
+    </div>
+  </section>
 
-  <div id="gallery" class="container section">
+  <!-- Gallery Section -->
+  <section class="gallery" id="galeri">
     <h2>Galeri</h2>
-    <p>Merkezimizin en güzel anlarına göz atın.</p>
-    <!-- Galeri için daha sonra resimlerle süsleyebiliriz -->
-  </div>
+    <img src="https://via.placeholder.com/300" alt="Galeri Fotoğrafı 1">
+    <img src="https://via.placeholder.com/300" alt="Galeri Fotoğrafı 2">
+    <img src="https://via.placeholder.com/300" alt="Galeri Fotoğrafı 3">
+  </section>
 
-  <div id="reviews" class="container section">
-    <h2>Yorumlar</h2>
-    <p>Müşterilerimizin hakkımızdaki düşünceleri.</p>
-    <!-- Yorumlar eklenebilir -->
-  </div>
+  <!-- Reels Section -->
+  <section class="reels" id="reels">
+    <h2>Reels</h2>
+    <video controls>
+      <source src="https://res.cloudinary.com/ddwjx4ra9/video/upload/v1737381599/trdo4jg3ucewrzmzb7ez.mp4" type="video/mp4">
+      Tarayıcınız video formatını desteklemiyor.
+    </video>
+    <video controls>
+      <source src="https://res.cloudinary.com/ddwjx4ra9/video/upload/v1737382325/v6klpboq9klw19it3tnb.mp4" type="video/mp4">
+      Tarayıcınız video formatını desteklemiyor.
+    </video>
+    <video controls>
+      <source src="https://res.cloudinary.com/ddwjx4ra9/video/upload/v1737382357/zxcjotaxzqnghqdzbobb.mp4" type="video/mp4">
+      Tarayıcınız video formatını desteklemiyor.
+    </video>
+  </section>
 
-  <div class="social-links">
-    <a href="#"><i class="fab fa-facebook-f">Facebook</i></a>
-    <a href="#"><i class="fab fa-instagram">Instagram</i></a>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      document.querySelector('.menu-items').classList.toggle('active');
-    }
-  </script>
-
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Anjel Begüm Güzellik Merkezi - Tüm Hakları Saklıdır.</p>
+  </footer>
 </body>
 </html>

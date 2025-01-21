@@ -59,7 +59,7 @@
     }
 
     /* Hizmetler */
-    .services, .gallery, .reels {
+    .services, .gallery, .reels, .ai-question {
       text-align: center;
       padding: 30px 10px;
     }
@@ -104,6 +104,50 @@
       display: block;
     }
 
+    /* Yapay Zeka Soru Kısmı */
+    .ai-question {
+      background-color: #f9f9f9;
+    }
+    #ai-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    #ai-input {
+      width: 90%;
+      max-width: 500px;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      resize: none;
+    }
+    #ai-form button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #ai-form button:hover {
+      background-color: #ff4a3d;
+    }
+    #ai-response {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
     /* Footer */
     footer {
       background-color: #ffe4e1;
@@ -121,6 +165,7 @@
       <a href="#hizmetler">Hizmetlerimiz</a>
       <a href="#galeri">Galeri</a>
       <a href="#reels">Reels</a>
+      <a href="#ai-question">Yapay Zeka</a>
     </div>
   </header>
 
@@ -175,9 +220,52 @@
     </video>
   </section>
 
+  <!-- Yapay Zeka Soru Kısmı -->
+  <section class="ai-question" id="ai-question">
+    <h2>Yapay Zeka ile Sohbet Et</h2>
+    <form id="ai-form">
+      <textarea id="ai-input" placeholder="Yapay zekaya sormak istediğiniz soruyu yazın..." required></textarea>
+      <button type="submit">Gönder</button>
+    </form>
+    <div id="ai-response">
+      <!-- Yapay zekanın cevabı burada gösterilecek -->
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Anjel Begüm Güzellik Merkezi - Tüm Hakları Saklıdır.</p>
   </footer>
+
+  <script>
+    const apiKey = "AIzaSyC0MNFG68Vp_tN1zt72q9SjgM4zbtC1EzI"; // API anahtarını buraya ekle
+    const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
+
+    document.getElementById("ai-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const input = document.getElementById("ai-input").value;
+      const responseDiv = document.getElementById("ai-response");
+
+      responseDiv.innerHTML = "Yanıt bekleniyor...";
+
+      try {
+        const response = await fetch(`${apiUrl}?key=${apiKey}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: input }] }]
+          })
+        });
+
+        const data = await response.json();
+        responseDiv.innerHTML = `<strong>Yapay Zeka:</strong> ${data.candidates[0].content.parts[0].text}`;
+      } catch (error) {
+        responseDiv.innerHTML = "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
+        console.error("Hata:", error);
+      }
+    });
+  </script>
 </body>
 </html>
